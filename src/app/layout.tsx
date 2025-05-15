@@ -13,9 +13,8 @@ import {
 import Providers from "@/app/Providers";
 
 export const metadata: Metadata = {
-  title: "Istanbul Restaurant Manchester | Authentic Turkish Cuisine",
-  description:
-    "Istanbul Machester was born from a passion for bringing the finest cuts of beef to the table, with a commitment to sustainability and premium quality.",
+  title: "Chadderton",
+  description: "Chadderton",
   icons: [{ rel: "icon", url: "/images/logo.png" }],
 };
 

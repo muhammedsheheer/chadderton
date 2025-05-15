@@ -12,11 +12,12 @@ const Hero = ({}) => {
           <video
             className="min-h-full min-w-full object-cover"
             style={{ objectPosition: "center" }}
-            src="/video/home/hero.mp4"
+            src="https://d8q1b3smcycac.cloudfront.net/chadderation/chadderation-web.mp4"
             autoPlay
             loop
             muted
             playsInline
+            poster="https://d8q1b3smcycac.cloudfront.net/chadderation/chadderation-thumbnail.png"
           ></video>
         </div>
         <div className="z-40 flex h-full w-full items-center justify-center">
