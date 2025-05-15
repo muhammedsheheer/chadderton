@@ -32,7 +32,7 @@ const Special = ({}) => {
             WebkitTextFillColor: "transparent",
           }}
         >
-          INSTANBUL Signature SPECIALS
+          Chadderton Signature SPECIALS
         </h1>
         {modelData && (
           <div className="relative z-20 flex min-h-[400px] w-full flex-col justify-center px-2">
