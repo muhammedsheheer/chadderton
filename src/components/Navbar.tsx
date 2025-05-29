@@ -7,6 +7,15 @@ import Sidebar from "./SideBar";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
+import * as React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = ({
   position = "static",
@@ -40,6 +49,7 @@ const Navbar = ({
       repeat: -1, // Infinite rotation
     });
   }, [isScrolled]);
+  const [positioned, setPositioned] = React.useState("bottom");
 
   return (
     <nav
@@ -66,13 +76,85 @@ const Navbar = ({
             >
               <Link href="/">Home</Link>
             </Button>
-            <Button
-              asChild
-              variant="link"
-              className="px-0 uppercase text-[#fff]"
-            >
-              <Link href="/menu">Menu</Link>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="px-0 uppercase text-[#fff]" variant="link">
+                  Menu
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-60">
+                <DropdownMenuRadioGroup
+                  value={positioned}
+                  onValueChange={setPositioned}
+                >
+                  <DropdownMenuRadioItem value="Menu">
+                    <Link className="uppercase text-[#000]" href={"/menu"}>
+                      Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="Main Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/main-menu.pdf"}
+                      target="_blank"
+                    >
+                      Main Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="A la carte Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/A la carte menu.pdf"}
+                      target="_blank"
+                    >
+                      A la carte Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="Cocktail Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/cocktail-menu.pdf"}
+                      target="_blank"
+                    >
+                      Cocktail Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="Dessert Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/dessert-menu.pdf"}
+                      target="_blank"
+                    >
+                      Dessert Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="Kids Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/Kids menu.pdf"}
+                      target="_blank"
+                    >
+                      Kids Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuRadioItem value="Midweek Market Menu">
+                    <Link
+                      className="uppercase text-[#000]"
+                      href={"/pdf/Midweek market menu.pdf"}
+                      target="_blank"
+                    >
+                      Midweek Market Menu
+                    </Link>
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link href="/">
               <Image
                 src="/images/logo.png"

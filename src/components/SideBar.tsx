@@ -1,3 +1,4 @@
+"use client";
 import {
   Sheet,
   SheetContent,
@@ -8,13 +9,17 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import { type FC } from "react";
+import { useState, type FC } from "react";
 
 interface SidebarProps {
   children: React.ReactNode;
 }
 
 const Sidebar: FC<SidebarProps> = ({ children }) => {
+  const [showSubMenu, setShowSubMenu] = useState(false);
+
+  const toggleSubMenu = () => setShowSubMenu((prev) => !prev);
+
   return (
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
@@ -30,12 +35,65 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
             >
               Home
             </Link>
-            <Link
-              href="/menu"
+            <button
+              onClick={toggleSubMenu}
               className="flex w-full justify-center p-0 font-playfair text-3xl font-normal text-accent text-white"
             >
-              Menu
-            </Link>
+              <span>Menu</span>
+            </button>
+
+            {showSubMenu && (
+              <div className="ml-6 flex w-full flex-col gap-6 pb-4 text-sm text-white">
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href="/menu"
+                >
+                  Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/main-menu.pdf"}
+                  target="_blank"
+                >
+                  Main Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/A la carte menu.pdf"}
+                  target="_blank"
+                >
+                  A la carte Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/cocktail-menu.pdf"}
+                  target="_blank"
+                >
+                  Cocktail Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/dessert-menu.pdf"}
+                  target="_blank"
+                >
+                  Dessert Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/Kids menu.pdf"}
+                  target="_blank"
+                >
+                  Kids Menu
+                </Link>
+                <Link
+                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
+                  href={"/pdf/Midweek market menu.pdf"}
+                  target="_blank"
+                >
+                  Midweek Market Menu
+                </Link>
+              </div>
+            )}
             <Link
               href="/about-us"
               className="flex w-full justify-center p-0 font-playfair text-3xl font-normal text-accent text-white"
@@ -54,41 +112,6 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
             >
               Table Booking
             </Link>
-            {/* <Button
-                            variant="link"
-                            className={cn("w-full flex justify-center p-0 uppercase text-accent text-white border-b-[1px] border-b-gray-800")}
-                            asChild
-                        >
-                            <Link href="/menu" className="flex gap-2 py-6"><Dock /> <span>Menu</span></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="link"
-                            className="w-full flex justify-center p-0 uppercase text-accent text-white border-b-[1px] border-b-gray-800"
-                        >
-                            <Link href="/about-us" className="flex gap-2 py-6"><ShieldQuestion /> <span>About</span> </Link>
-                        </Button>
-                        <Button
-                            variant="link"
-                            className="w-full flex justify-center p-0 uppercase text-accent text-white border-b-[1px] border-b-gray-800"
-                            asChild
-                        >
-                            <Link href="/contact" className="flex gap-2 py-6"><Phone /> <span>Contact</span></Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="link"
-                            className="w-full flex justify-center px-1 p-0 uppercase text-accent text-white border-b-[1px] border-b-gray-800"
-                        >
-                            <Link href="/table-booking" className="flex gap-2 py-6"><BookCheck /> <span>Booking</span> </Link>
-                        </Button>
-                        <Button
-                            asChild
-                            variant="link"
-                            className="w-full flex justify-center p-0 uppercase text-accent text-white"
-                        >
-                            <Link href="/gift-voucher" className="flex gap-2 py-6" ><Gift /> <span>Gift Voucher</span></Link>
-                        </Button> */}
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
