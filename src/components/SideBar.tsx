@@ -46,12 +46,6 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
               <div className="ml-6 flex w-full flex-col gap-6 pb-4 text-sm text-white">
                 <Link
                   className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
-                  href="/menu"
-                >
-                  Menu
-                </Link>
-                <Link
-                  className="flex w-full justify-center p-0 font-playfair text-2xl font-normal text-accent text-white"
                   href={"/pdf/main-menu.pdf"}
                   target="_blank"
                 >
@@ -99,6 +93,12 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
               className="flex w-full justify-center p-0 font-playfair text-3xl font-normal text-accent text-white"
             >
               Our Story
+            </Link>
+            <Link
+              href="/menu"
+              className="flex w-full justify-center p-0 font-playfair text-3xl font-normal text-accent text-white"
+            >
+              Order Online
             </Link>
             <Link
               href="/contact"

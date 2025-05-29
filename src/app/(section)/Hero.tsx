@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const Hero = ({}) => {
   return (
     <section className="relative flex h-screen w-full items-center justify-center">
+      <div className="absolute inset-0 z-0 bg-black/50"></div>
       <div className="relative flex h-screen w-full items-center justify-center bg-black">
-        <div className="absolute inset-0 z-0 bg-black/50"></div>
         <div className="absolute left-0 top-0 h-full w-full overflow-hidden">
           <video
             className="min-h-full min-w-full object-cover"
@@ -40,12 +40,21 @@ const Hero = ({}) => {
               WELCOME <br />
               TO chadderton
             </h1>
-            <div className="ml-[2%] flex flex-col items-center justify-center gap-3">
-              <Link href="/table-booking">
-                <Button className="hero-button flex items-center justify-center gap-3 rounded-none bg-popover px-7 py-7 uppercase">
-                  Book now
-                </Button>
-              </Link>
+            <div className="z-40 flex flex-row gap-4">
+              <div className="ml-[2%] flex flex-col items-center justify-center gap-3">
+                <Link href="/table-booking">
+                  <Button className="hero-button flex items-center justify-center gap-3 rounded-none bg-popover px-7 py-7 uppercase">
+                    Book now
+                  </Button>
+                </Link>
+              </div>
+              <div className="ml-[2%] flex flex-col items-center justify-center gap-3">
+                <Link href="/menu">
+                  <Button className="hero-button flex items-center justify-center gap-3 rounded-none bg-popover px-7 py-7 uppercase">
+                    Order now
+                  </Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>

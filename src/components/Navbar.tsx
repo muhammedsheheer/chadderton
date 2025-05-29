@@ -87,12 +87,6 @@ const Navbar = ({
                   value={positioned}
                   onValueChange={setPositioned}
                 >
-                  <DropdownMenuRadioItem value="Menu">
-                    <Link className="uppercase text-[#000]" href={"/menu"}>
-                      Menu
-                    </Link>
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuSeparator />
                   <DropdownMenuRadioItem value="Main Menu">
                     <Link
                       className="uppercase text-[#000]"
@@ -155,6 +149,13 @@ const Navbar = ({
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
+            <Button
+              asChild
+              variant="link"
+              className="px-0 uppercase text-[#fff]"
+            >
+              <Link href="/menu">Order Online</Link>
+            </Button>
             <Link href="/">
               <Image
                 src="/images/logo.png"
